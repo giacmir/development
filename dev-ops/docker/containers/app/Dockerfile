@@ -1,4 +1,6 @@
-FROM webdevops/php-apache:7.2
+ARG IMAGE_VARIANT
+ARG PHP_VERSION
+FROM ${IMAGE_VARIANT}:${PHP_VERSION}
 COPY --from=composer:1 /usr/bin/composer /usr/local/bin/composer
 
 COPY wait-for-it.sh /usr/local/bin/
